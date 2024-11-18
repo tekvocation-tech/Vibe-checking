@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f0f7ff;
+        }
+
+        .image-section {
+            flex: 1.2;
+            position: relative;
+            overflow: hidden;
+            background: url('https://i.pinimg.com/736x/27/4a/d3/274ad37d2088260255fd42c329460028.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                rgba(0, 0, 0, 0.2),
+                rgba(0, 0, 0, 0.4)
+            );
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .overlay h2 {
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .overlay p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            font-weight: 400;
+        }
+
+        .form-section {
+            flex: 0.8;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(29, 78, 216, 0.1);
+            max-width: 450px;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #1e3a8a;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #1e40af;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e7ff;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: #f8fafc;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            background: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #2563eb, #3b82f6);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            background: linear-gradient(45deg, #1d4ed8, #2563eb);
+        }
+
+        .alternative-signup {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .alternative-signup p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        .alternative-signup a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .social-signup {
+            margin-top: 25px;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .social-btn {
+            padding: 12px 25px;
+            border: 2px solid #e0e7ff;
+            border-radius: 12px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: #f0f7ff;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .image-section {
+                height: 300px;
+                clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+            }
+            
+            .form-section {
+                padding: 40px 20px;
+            }
+            
+            .overlay h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .overlay h2 {
+                font-size: 2rem;
+            }
+            
+            .overlay p {
+                font-size: 1rem;
+            }
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            z-index: 10;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .logo-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo {
+            width: 180px;
+            height: auto;
+            display: block;
+        }
+
+        .form-logo {
+            text-align: center;
+            margin-bottom: 10px;
+            padding: 5px;
+        }
+
+        .form-logo img {
+            width: 100px;
+            height: auto;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .logo-container {
+                top: 15px;
+                left: 15px;
+                padding: 10px;
+            }
+
+            .logo {
+                width: 150px;
+            }
+
+            .form-logo img {
+                width: 160px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                padding: 8px;
+            }
+
+            .logo {
+                width: 120px;
+            }
+
+            .form-logo img {
+                width: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section">
+            <div class="overlay">
+                <h2>Start Your Professional Journey</h2>
+                <p>Vibe Checking</p>
+            </div>
+        </div>
+        <div class="form-section">
+            <div class="form-container">
+                <div class="form-logo">
+                    <img src="https://www.tekvocation.com/Tekvocation%20Logo1.png" alt="Tekvocation Logo">
+                </div>
+                <h1>Create Account</h1>
+                <form>
+                    <div class="input-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Create a password" required>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                </form>
+                <div class="alternative-signup">
+                    <p>Already have an account? <a href="signin.html">Log in</a></p>
+                </div>
+                <div class="social-signup">
+                    <button class="social-btn">
+                        <img src="https://img.icons8.com/color/24/000000/google-logo.png"/>
+                    </button>
+                    <button class="social-btn">
+                        <img src="https://img.icons8.com/color/24/000000/facebook-new.png"/>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

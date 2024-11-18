@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Tekvocation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Your existing styles from home page */
+        
+        /* About page specific styles */
+        .about-section {
+            padding: 40px 0;
+        }
+
+        .about-section h2 {
+            color: #2563eb;
+            margin-bottom: 25px;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .about-section h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background: #2563eb;
+        }
+
+        .about-content {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .about-content p {
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .philosophy-card {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #2563eb;
+            transition: transform 0.3s ease;
+        }
+
+        .philosophy-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .philosophy-card h3 {
+            color: #2563eb;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        /* Dark theme adjustments */
+        .dark-theme .about-content {
+            background: #2d2d2d;
+        }
+
+        .dark-theme .about-content p {
+            color: #ccc;
+        }
+
+        .dark-theme .philosophy-card {
+            background: #1e1e1e;
+        }
+        /* Footer styles */
+        .footer {
+            background: linear-gradient(135deg, #5a82e7 0%, #2563eb 100%);
+            color: white;
+            padding: 40px 0 20px;
+            position: relative;
+            width: calc(100% - 250px);
+            margin-left: 250px;
+            transition: margin-left 0.3s;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 0;
+        }
+
+        .footer.collapsed {
+            width: calc(100% - 80px);
+            margin-left: 80px;
+        }
+
+        .footer h5 {
+            color: white;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        .footer i {
+            margin-right: 10px;
+        }
+
+        .footer hr {
+            margin: 30px 0;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer .social-icons a {
+            background: rgba(255, 255, 255, 0.1);
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-left: 10px;
+            transition: background 0.3s;
+        }
+
+        .footer .social-icons a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Dark theme footer styles */
+        .dark-theme .footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        /* Responsive footer */
+        @media (max-width: 768px) {
+            .footer {
+                width: 100%;
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+        .footer {
+            margin-top: auto;
+            width: calc(100% - 250px);
+            margin-left: 250px;
+            transition: all 0.3s;
+        }
+
+        .footer.collapsed {
+            width: calc(100% - 80px);
+            margin-left: 80px;
+        }
+        /* Sidebar styles */
+        .sidebar {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: #5a82e7;
+            padding-top: 20px;
+            transition: 0.3s;
+            z-index: 1000;
+            min-height: 100vh;
+            overflow-y: auto;
+        }
+
+        .sidebar.collapsed {
+            width: 80px; /* Width when collapsed */
+        }
+
+        .sidebar-header {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .logo-container img {
+            width: 180px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-menu {
+            padding: 0;
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            padding: 15px 10px; /* Adjusted padding for better alignment */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center; /* Center align text */
+        }
+
+        .sidebar-menu li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center align icons */
+        }
+
+        .sidebar-menu li a i {
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .sidebar-menu li:hover {
+            background: #2563eb;
+        }
+
+        /* Main content styles */
+        .main-content {
+            flex: 1;
+            padding: 20px 20px 0 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .main-content.collapsed {
+            margin-left: 80px; /* Margin when sidebar is collapsed */
+        }
+
+        /* Toggle button styles */
+        .toggle-btn {
+            position: absolute;
+            left: 100%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            background: #1e3a8a;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: left 0.3s;
+            z-index: 1001;
+        }
+
+        /* Carousel styles */
+        .carousel {
+            margin-bottom: 20px; /* Reduce margin */
+        }
+
+        .carousel-item img {
+            height: 400px;
+            object-fit: cover;
+        }
+
+        /* Round image section styles */
+        .round-images-container {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            padding: 0;
+            margin-bottom: 0;
+        }
+
+        .round-image-item {
+            text-align: center;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .round-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            animation: floatAndZoom 3s ease-in-out infinite;
+        }
+
+        .tekvocation-logo {
+            width: 80%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 0; /* Remove border radius for the logo */
+        }
+
+        .image-title {
+            font-size: 14px;
+            color: #333;
+            margin-top: 8px;
+        }
+
+        /* Animation keyframes */
+        @keyframes pulseZoom {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        @keyframes floatAndZoom {
+            0% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-10px) scale(1.08);
+            }
+            100% {
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Hover effects */
+        .round-image-item:hover .round-image {
+            animation: pulseZoom 1s ease-in-out infinite;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .round-images-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .round-images-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .round-images-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .round-images-container {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+
+        /* Dark theme styles */
+        .dark-theme {
+            background-color: #000;
+            color: white;
+        }
+
+        .dark-theme .navbar {
+            background-color: #1e1e1e;
+        }
+
+        .dark-theme .nav-link {
+            color: white !important;
+        }
+
+        .dark-theme .nav-link:hover {
+            color: #2563eb !important;
+        }
+
+        .dark-theme .round-image {
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+        }
+
+        .dark-theme .image-title {
+            color: #f0f0f0;
+        }
+
+        /* Modal header text color in dark theme */
+        .dark-theme .modal-header {
+            color: black;
+        }
+
+        /* Footer styles */
+        .footer {
+            background: linear-gradient(135deg, #5a82e7 0%, #2563eb 100%);
+            color: white;
+            padding: 40px 0 20px;
+            position: relative;
+            width: calc(100% - 250px);
+            margin-left: 250px;
+            transition: margin-left 0.3s;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 0;
+        }
+
+        .footer.collapsed {
+            width: calc(100% - 80px);
+            margin-left: 80px;
+        }
+
+        .footer h5 {
+            color: white;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer a:hover {
+            color: white;
+        }
+
+        .footer i {
+            margin-right: 10px;
+        }
+
+        .footer hr {
+            margin: 30px 0;
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer .social-icons a {
+            background: rgba(255, 255, 255, 0.1);
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-left: 10px;
+            transition: background 0.3s;
+        }
+
+        .footer .social-icons a:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Dark theme footer styles */
+        .dark-theme .footer {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+        }
+
+        /* Responsive footer */
+        @media (max-width: 768px) {
+            .footer {
+                width: 100%;
+                margin-left: 0;
+                padding: 20px;
+            }
+        }
+
+        /* Fix for sidebar and page structure */
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        .sidebar {
+            position: fixed;
+            height: 100%;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .page-wrapper {
+            flex: 1;
+            margin-left: 250px;
+            transition: margin-left 0.3s;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .page-wrapper.collapsed {
+            margin-left: 80px;
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 20px;
+        }
+
+        /* Updated Navbar Styles */
+        .top-navbar {
+            background: #2563eb;
+            color: white;
+            padding: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 250px;
+            z-index: 999;
+            transition: all 0.3s;
+            height: 60px;
+        }
+
+        .top-navbar.collapsed {
+            left: 80px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: 0 20px;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .navbar-toggler {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .nav-right {
+            flex: 1;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 4px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            min-width: 180px;
+            margin-top: 5px;
+        }
+
+        .dropdown-menu.show {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 8px 15px;
+            color: #333;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background: #f8f9fa;
+        }
+
+        .dropdown-divider {
+            border-top: 1px solid #eee;
+            margin: 5px 0;
+        }
+
+        /* Adjust main content for navbar */
+        .main-content {
+            margin-top: 60px; /* Height of navbar */
+            padding: 20px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .navbar-toggler {
+                display: block;
+            }
+
+            .nav-right {
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: #2563eb;
+                padding: 15px;
+                display: none;
+            }
+
+            .nav-right.show {
+                display: block;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: rgba(255, 255, 255, 0.1);
+            }
+
+            .dropdown-item {
+                color: white;
+            }
+
+            .dropdown-item:hover {
+                background: rgba(255, 255, 255, 0.2);
+            }
+        }
+
+        /* Adjust page wrapper */
+        .page-wrapper {
+            padding-top: 60px; /* Height of navbar */
+        }
+
+        /* Update footer styles */
+        .footer {
+            margin-top: auto;
+            width: calc(100% - 250px);
+            margin-left: 250px;
+            transition: all 0.3s;
+        }
+
+        .footer.collapsed {
+            width: calc(100% - 80px);
+            margin-left: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .top-navbar,
+            .footer {
+                left: 0;
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+
+        /* Remove old sidebar styles and add these new header styles */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: #5a82e7;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            padding: 0.5rem 1rem;
+        }
+
+        .navbar-brand img {
+            max-height: 40px;
+            width: auto;
+        }
+
+        .navbar-toggler {
+            border: none;
+            color: white;
+            padding: 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .nav-link {
+            color: white !important;
+            padding: 0.5rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+        }
+
+        .nav-link i {
+            font-size: 1.1rem;
+        }
+
+        .dropdown-menu {
+            background: white;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .dropdown-item {
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .dropdown-item:hover {
+            background: #f8f9fa;
+        }
+
+        /* Update main content styles */
+        .page-wrapper {
+            margin-left: 0;
+            padding-top: 60px;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        /* Update footer styles */
+        .footer {
+            width: 100%;
+            margin-left: 0;
+        }
+
+        /* Dark theme adjustments */
+        .dark-theme .main-header {
+            background: #1e1e1e;
+        }
+
+        .dark-theme .dropdown-menu {
+            background: #2d2d2d;
+        }
+
+        .dark-theme .dropdown-item {
+            color: white;
+        }
+
+        .dark-theme .dropdown-item:hover {
+            background: #3d3d3d;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .navbar-collapse {
+                background: #5a82e7;
+                padding: 1rem;
+                border-radius: 0 0 8px 8px;
+            }
+
+            .dark-theme .navbar-collapse {
+                background: #1e1e1e;
+            }
+        }
+        /* Header Styles */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #5a82e7;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    padding: 0.5rem 1rem;
+}
+
+.navbar-brand img {
+    max-height: 40px;
+    width: auto;
+}
+
+.navbar-toggler {
+    border: none;
+    color: white;
+    padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.nav-link {
+    color: white !important;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.nav-link i {
+    font-size: 1.1rem;
+}
+
+.dropdown-menu {
+    background: white;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.dropdown-item:hover {
+    background: #f8f9fa;
+}
+
+/* Dark theme adjustments */
+.dark-theme .main-header {
+    background: #1e1e1e;
+}
+
+.dark-theme .dropdown-menu {
+    background: #2d2d2d;
+}
+
+.dark-theme .dropdown-item {
+    color: white;
+}
+
+.dark-theme .dropdown-item:hover {
+    background: #3d3d3d;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background: #5a82e7;
+        padding: 1rem;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .dark-theme .navbar-collapse {
+        background: #1e1e1e;
+    }
+}
+/* Footer Styles */
+.footer {
+    background: linear-gradient(135deg, #5a82e7 0%, #2563eb 100%);
+    color: white;
+    padding: 40px 0 20px;
+    width: 100%;
+    margin-left: 0;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+}
+
+.footer h5 {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: white;
+}
+
+.footer i {
+    margin-right: 10px;
+}
+
+.footer hr {
+    margin: 30px 0;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.footer .social-icons a {
+    background: rgba(255, 255, 255, 0.1);
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-left: 10px;
+    transition: background 0.3s;
+}
+
+.footer .social-icons a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Dark theme footer */
+.dark-theme .footer {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+    .footer {
+        padding: 20px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <!-- Logo -->
+                    <a class="navbar-brand" href="#">
+                        <img src="https://i.postimg.cc/bYWtQRtm/Tekvocation-Logo.png" alt="Tekvocation Logo" height="40">
+                    </a>
+    
+                    <!-- Mobile Toggle Button -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+                        <i class="fas fa-bars"></i>
+                    </button>
+    
+                    <!-- Navigation Items -->
+                    <div class="collapse navbar-collapse" id="navbarContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="home.html"><i class="fas fa-home"></i> Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> About Us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    <i class="fas fa-ellipsis-h"></i> More
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="services.html">Services</a></li>
+                                   <!-- <li><a class="dropdown-item" href="#">Projects</a></li> -->
+                                    <li><a class="dropdown-item" href="team.html">Team</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+    
+                        <!-- Right Side Items -->
+                        <div class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#themeModal">
+                                    <i class="fas fa-cog"></i> Settings
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    <i class="fas fa-user"></i> Account
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="#">Profile</a></li>
+                                    <li><a class="dropdown-item" href="#">Settings</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="signin.html">Logout</a></li>
+                                </ul>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+    
+        <!-- Copy the header from home page -->
+    </header>
+
+    <!-- Main Content -->
+    <div class="page-wrapper">
+        <div class="main-content">
+            <div class="container">
+                <div class="about-section">
+                    <h2>About Tekvocation</h2>
+                    
+                    <div class="about-content">
+                        <p>Tekvocation is a technology services and training company in Mysore. It is founded by seasoned entrepreneurs with over 30 years of experience in the technology industry, including building multiple successful product companies in the US and India.</p>
+                        
+                        <p>As an organization, our primary objective is to impart technology skills and opportunities to a growing generation of technology professionals living in a charming city like Mysore and to give them the chance to take advantage of the excellent quality of life it has to offer.</p>
+                    </div>
+
+                    <div class="about-content">
+                        <p>We believe there is a growing demand to fill positions in various technology industries, Where innovation is powered by technology, offering business and operational benefits. Worldwide, the demand for technology talent and solutions is growing. With strong connections to technology industry innovators and companies, Tekvocation is able to bring talent and a wide range of technology solutions to many industries.</p>
+                        
+                        <p>Tekvocation's program prepares new graduates for a productive and fulfilling career by exposing them to extended real-world training and experience. Tekvocation encourages a strong work ethic and passion for accomplishing challenging work of high quality and value.</p>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="philosophy-card">
+                                <h3><i class="fas fa-microchip me-2"></i>Our Philosophy - Technology</h3>
+                                <p>At the core of our approach is a deep understanding of how technology can be harnessed to drive business growth, improve operational efficiency, and enhance customer experiences. We believe that technology should be an enabler, empowering organizations to achieve their goals and stay ahead in an increasingly digital world.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="philosophy-card">
+                                <h3><i class="fas fa-graduation-cap me-2"></i>Our Philosophy - Internship Program</h3>
+                                <p>At Tekvocation, we believe in organic transformation in the lives of our learners. We help individuals meet the challenges of increasing complexity and growing uncertainty by discovering, inspiring and liberating their potential.</p>
+                                <p>Our training programs are consciously planned with an ingeniously laid out schedule; we value individual learning over herd sessions and therefore all our learners receive adequate time to learn, explore, unlearn, relearn and acquire knowledge and skills.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <h5>About Tekvocation</h5>
+                            <p>Tekvocation is a technology services and training company in Mysore. Our learning solutions aim to unlock potential and accelerate growth. </p>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <h5>Quick Links</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="home.html">Home</a></li>
+                                <li><a href="services.html">Services</a></li>
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <h5>Contact Us</h5>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-map-marker-alt"></i>  NIKHIL PLAZA, 1310 & 1333, Gaganachumbi Double Rd, near Amruth Gobi (Original, Jayanagar, Kuvempu Nagara, Mysuru, Karnataka 570023, India</li>
+                                <li><i class="fas fa-phone"></i> +91 6363410028</li>
+                                <li><i class="fas fa-envelope"></i> outreach@tekvocation.com</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>&copy; 2024 Tekvocation. All rights reserved.</p>
+                        </div>
+                        <div class="col-md-6 text-md-end social-icons">
+                            <a href="https://www.facebook.com/tekvocation.mysore"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.linkedin.com/in/tekvocation-mysuru-7483b227a/"><i class="fab fa-linkedin"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            
+            <!-- Copy the footer from home page -->
+        </footer>
+    </div>
+
+    <!-- Theme Modal -->
+    <!--div class="modal fade" id="themeModal" tabindex="-1" aria-hidden="true"-->
+    
+        
+        <!-- Copy the theme modal from home page -->
+         
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Copy the JavaScript from home page -->
+</body>
+</html> 
